@@ -1,0 +1,69 @@
+{
+  flex_0:{
+    flex:0
+  },
+  flex_1:{
+    flex: 1
+  },
+  flex_2:{
+    flex: 2
+  },
+  flex_3:{
+    flex: 3
+  },
+  center:{
+    justifyContent: 'center',
+    alignContent: 'center'
+  },
+  jCenter:{
+    justifyContent: 'center'
+  },
+  aCenter:{
+    alignContent: 'center'
+  },
+  txt_c: {
+    textAlign: 'center'
+  },
+  txt_l:{
+    textAlign: 'left'
+  },
+  txt_r:{
+    textAlign: 'right'
+  },
+  row:{
+    flexDirection: 'row'
+  },
+  column: {
+    flexDirection: 'column'
+  },
+  white:{
+    color:'#fff'
+  },
+  black:{
+    color: '#000'
+  },
+  padd_10:{
+    padding: 10
+  },
+  padd_15:{
+    padding: 15
+  },
+  padd_20:{
+    padding: 20
+  },
+  padd_30:{
+    padding: 30
+  },
+  mar_10:{
+    margin: 10
+  },
+  mar_15:{
+    margin: 15
+  },
+  mar_20:{
+    margin: 20
+  },
+  mar_30:{
+    margin: 30
+  }
+}
