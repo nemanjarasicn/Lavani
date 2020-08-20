@@ -126,7 +126,7 @@ export default class Korekcija_rv_list extends Component {
               <TouchableOpacity
                 onPress={() => {
                   this.navigation.navigate('Edit_unos_krv', {
-                    idRV: item[0],
+                    idKRV: item[0],
                     idRadnik: this.idRadnik,
                     radnikIme: this.radnikIme,
                     idUgovor: this.idUgovor,
@@ -152,15 +152,15 @@ export default class Korekcija_rv_list extends Component {
                       style.center,
                     )}>
                     <Text style={this.H.ObjAss({fontSize: 18}, style.txt_c)}>
-                      {item[3]}
+                      {item[1]}
                     </Text>
                     <Text style={style.txt_c}>
-                      {`${new Date(item[1]).getDate()}/${new Date(
-                        item[1],
+                      {`${new Date(item[2]).getDate()}/${new Date(
+                        item[2],
                       ).getMonth() + 1}/${new Date(
-                        item[1],
+                        item[2],
                       ).getFullYear()}`}{' '}
-                      - {this.secondDate(item[2])}
+                      - {this.secondDate(item[3])}
                     </Text>
                   </View>
                 </View>

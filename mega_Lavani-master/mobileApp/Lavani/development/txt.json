@@ -127,7 +127,10 @@
     "broj_sati": "Број сати",
     "nova_korekcija": "Нова корекција",
     "ugovor": "Уговор",
-    "popunite_sva_polja_sa_zvezdicom": "Попуните сва поља са звездицом"
+    "popunite_sva_polja_sa_zvezdicom": "Попуните сва поља са звездицом",
+    "firma": "Фирма",
+    "zamena": "Замена",
+    "nema": "Нема"
   },
   "1": {
     "login": "Uloguj se",
@@ -257,6 +260,9 @@
     "broj_sati": "Broj sati",
     "nova_korekcija": "Nova korekcija",
     "ugovor": "Ugovor",
-    "popunite_sva_polja_sa_zvezdicom": "Popunite sva polja sa zvezdicom"
+    "popunite_sva_polja_sa_zvezdicom": "Popunite sva polja sa zvezdicom",
+    "firma": "Firma",
+    "zamena": "Zamena",
+    "nema": "Nema"
   }
 }

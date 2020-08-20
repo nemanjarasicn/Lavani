@@ -11,6 +11,7 @@ export default class Korekcija_rv_odabir extends Component {
     this.Con = props.params.Config;
     this.idRadnik = props.params.route.params.idRadnik;
     this.radnikIme = props.params.route.params.radnikIme;
+    this.entitet = props.params.route.params.entitet;
     this.navigation = props.params.navigation;
   }
 

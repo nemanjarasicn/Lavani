@@ -143,6 +143,10 @@ export default class App extends Component {
       value: '',
       label: '',
     });
+    const [_firma, _setFirma] = useState({
+      value: '',
+      label: '',
+    });
     const [_radnoMestoR, _setRadnoMestoR] = useState({value: '', label: ''});
     const [_vrstaZaposlenjaR, _setVrstaZaposlenjaR] = useState({
       value: '',
@@ -201,6 +205,7 @@ export default class App extends Component {
             stazGodina_u: _stazGodina_uR,
             dokument: _dokument,
             dokumentList: _dokumentList,
+            firma: _firma,
           },
           set: {
             id: _setIdR,
@@ -231,6 +236,7 @@ export default class App extends Component {
             stazGodina_u: _setStazGodina_uR,
             dokument: _setDokument,
             dokumentList: _setDokumentList,
+            firma: _setFirma,
           },
         }}
       />
@@ -646,6 +652,7 @@ export default class App extends Component {
     const [_ddo_y, _setDdo_y] = useState('');
     const [_brUgovora, _setBrUgovora] = useState('');
     const [_zaposleni, _setZaposleni] = useState({value: '', label: ''});
+    const [_zamena, _setZamena] = useState({value: '', label: ''});
 
     return (
       <Radnici_na_objektu_unos_edit
@@ -665,6 +672,7 @@ export default class App extends Component {
             ddo_y: _setDdo_y,
             brUgovora: _setBrUgovora,
             zaposleni: _setZaposleni,
+            zamena: _setZamena,
           },
           get: {
             dod_d: _dod_d,
@@ -675,6 +683,7 @@ export default class App extends Component {
             ddo_y: _ddo_y,
             brUgovora: _brUgovora,
             zaposleni: _zaposleni,
+            zamena: _zamena,
           },
         }}
       />

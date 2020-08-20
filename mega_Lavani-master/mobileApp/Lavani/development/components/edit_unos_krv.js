@@ -28,16 +28,21 @@ export default class Edit_unos_krv extends Component {
     this.ugovorNaziv = props.params.route.params.ugovorNaziv;
   }
 
-  ins_upd = () => {
+  ins_upd = params => {
     this.H.callFetch({
       url: this.Con.endpoint + 'korekcija_rv.cfc?method=ins_upd',
       data: {
-        idKRV: this.idKRV,
         entitet: this.entitet,
-        napomena: this.props.params.get.napomena,
-        datum_od: this.props.params.get.datum_od,
-        datum_do: this.props.params.get.datum_do,
-        broj_sati: this.props.params.get.broj_sati,
+        idKRV: this.idKRV,
+        idUgovor: this.idUgovor,
+        brSati: params.get.broj_sati,
+        napomena: params.get.napomena,
+        datum_od: `${params.get.godinaOd}-${params.get.mesecOd}-${
+          params.get.danOd
+        }`,
+        datum_do: `${params.get.godinaDo}-${params.get.mesecDo}-${
+          params.get.danDo
+        }`,
       },
       func: res => {
         if (res) {
@@ -61,6 +66,29 @@ export default class Edit_unos_krv extends Component {
     });
   };
 
+  getKorekcijaByID() {
+    this.H.callFetch({
+      url: this.Con.endpoint + 'korekcija_rv.cfc?method=getByID',
+      data: {idKRV: this.idKRV},
+      func: res => {
+        const result = res.DATA[0];
+        this.props.params.set.broj_sati(result[0]);
+        console.log(result[0]);
+        this.props.params.set.napomena(result[3]);
+        this.props.params.set.godinaOd(new Date(result[1]).getFullYear());
+        this.props.params.set.mesecOd(new Date(result[1]).getMonth() + 1);
+        this.props.params.set.danOd(new Date(result[1]).getDate());
+        this.props.params.set.godinaDo(new Date(result[2]).getFullYear());
+        this.props.params.set.mesecDo(new Date(result[2]).getMonth() + 1);
+        this.props.params.set.danDo(new Date(result[2]).getDate());
+      },
+    });
+  }
+
+  componentDidMount() {
+    if (this.idKRV != '') this.getKorekcijaByID();
+  }
+
   render() {
     const params = this.props.params;
     const style = params.style;
@@ -80,7 +108,7 @@ export default class Edit_unos_krv extends Component {
                 onChangeText={value => {
                   params.set.broj_sati(value);
                 }}
-                value={params.get.broj_sati}
+                value={params.get.broj_sati.toString()}
                 keyboardType="phone-pad"
               />
             </View>
@@ -100,6 +128,7 @@ export default class Edit_unos_krv extends Component {
                       params.set.danOd(value);
                     }}
                     value={params.get.danOd.toString()}
+                    keyboardType="phone-pad"
                     maxLength={2}
                   />
                 </View>
@@ -116,6 +145,7 @@ export default class Edit_unos_krv extends Component {
                       params.set.mesecOd(value);
                     }}
                     value={params.get.mesecOd.toString()}
+                    keyboardType="phone-pad"
                     maxLength={2}
                   />
                 </View>
@@ -132,6 +162,7 @@ export default class Edit_unos_krv extends Component {
                       params.set.godinaOd(value);
                     }}
                     value={params.get.godinaOd.toString()}
+                    keyboardType="phone-pad"
                     maxLength={4}
                   />
                 </View>
@@ -153,6 +184,7 @@ export default class Edit_unos_krv extends Component {
                       params.set.danDo(value);
                     }}
                     value={params.get.danDo.toString()}
+                    keyboardType="phone-pad"
                     maxLength={2}
                   />
                 </View>
@@ -169,6 +201,7 @@ export default class Edit_unos_krv extends Component {
                       params.set.mesecDo(value);
                     }}
                     value={params.get.mesecDo.toString()}
+                    keyboardType="phone-pad"
                     maxLength={2}
                   />
                 </View>
@@ -185,6 +218,7 @@ export default class Edit_unos_krv extends Component {
                       params.set.godinaDo(value);
                     }}
                     value={params.get.godinaDo.toString()}
+                    keyboardType="phone-pad"
                     maxLength={4}
                   />
                 </View>
@@ -216,25 +250,7 @@ export default class Edit_unos_krv extends Component {
             )
               Alert.alert(txt.upozorenje, txt.popunite_sva_polja);
             else {
-              this.H.callFetch({
-                url: this.Con.endpoint + 'korekcija_rv.cfc?method=ins_upd',
-                data: {
-                  idKRV: this.idKRV,
-                  brSati: params.get.broj_sati,
-                  napomna: params.get.napomena,
-                  datum_od: `${params.get.godinaOd}-${params.get.mesecOd}-${
-                    params.get.danOd
-                  }`,
-                  datum_do: `${params.get.godinaDo}-${params.get.mesecDo}-${
-                    params.get.danDo
-                  }`,
-                  entitet: this.entitet,
-                },
-                func: res => {
-                  Alert.alert(txt.obavestenje, txt.molim_sacekajte);
-                  this.ins_upd();
-                },
-              });
+              this.ins_upd(params);
             }
           }}>
           <View
