@@ -303,7 +303,8 @@ export default class Edit_unos_radnika extends Component {
                   onValueChange={(value, index) => {
                     params.set.strucnaSprema({
                       value: value,
-                      label: this.strucnaSprema[index - 1].label,
+                      label:
+                        index !== 0 ? this.strucnaSprema[index - 1].label : '',
                     });
                   }}
                   items={this.strucnaSprema}
@@ -324,13 +325,12 @@ export default class Edit_unos_radnika extends Component {
                   onValueChange={(value, index) => {
                     params.set.firma({
                       value: value,
-                      label: this.firma[index].label,
+                      label: index !== 0 ? this.firma[index - 1].label : '',
                     });
                   }}
                   items={this.firma}
                   value={params.get.firma.value}
                   useNativeAndroidPickerStyle={false}
-                  placeholder={{label: txt.firma}}
                 />
               </View>
             </View>
@@ -345,7 +345,10 @@ export default class Edit_unos_radnika extends Component {
                   onValueChange={(value, index) => {
                     params.set.vrstaZaposlenja({
                       value: value,
-                      label: this.vrstaZaposlenja[index - 1].label,
+                      label:
+                        index !== 0
+                          ? this.vrstaZaposlenja[index - 1].label
+                          : '',
                     });
                   }}
                   items={this.vrstaZaposlenja}

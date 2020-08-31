@@ -104,6 +104,7 @@ export default class App extends Component {
           Helper: this.Help,
           txt: this._txt[this.pismoState.val],
           style: this._style,
+          Korisnik: this._korisnik,
         }}
       />
     );

@@ -133,7 +133,10 @@ export default class Login extends Component {
                             prava,
                             data1[3],
                           );
-                          params.navigation.navigate('Odabir'); //proveriti iz baze usera
+                          //params.navigation.navigate('Odabir'); //proveriti iz baze usera
+                          params.navigation.navigate('Home', {
+                            entitet: 34,
+                          });
                         }
                       } else Alert.alert(txt.upozorenje, txt.los_login);
                     },

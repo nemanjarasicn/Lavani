@@ -9,7 +9,7 @@ export default class Home extends Component {
     const H = params.Helper;
     const Con = params.Config;
     const routeParams = params.route.params;
-    const Korisnik = routeParams.Korisnik;
+    const Korisnik = params.Korisnik;
 
     const unosRadnika = Korisnik.imaPravo(909) ? (
       <TouchableOpacity
