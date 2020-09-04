@@ -117,6 +117,7 @@ export default class Login extends Component {
                           const data1 = res[1].DATA[0]; //lice info (ID, IME, PREZIME, REGION_ID)
                           const data2 = res[2].DATA; //entiteti
                           const data3 = res[3].DATA; //prava na opcije
+                          const data4 = res[4].DATA; //id regiona
                           let entiteti = [],
                             prava = [];
                           data2.forEach(el => {
@@ -131,7 +132,7 @@ export default class Login extends Component {
                             data1[2],
                             entiteti,
                             prava,
-                            data1[3],
+                            data4,
                           );
                           //params.navigation.navigate('Odabir'); //proveriti iz baze usera
                           params.navigation.navigate('Home', {

@@ -15,7 +15,6 @@ export default class Unos_objekata_home extends Component {
   }
 
   componentDidMount() {
-    console.log(this.reg_id);
     this.H.callFetch({
       url: this.Con.endpoint + 'objekti.cfc?method=getAll',
       data: {entitet: this.entitet, reg_id: this.reg_id},

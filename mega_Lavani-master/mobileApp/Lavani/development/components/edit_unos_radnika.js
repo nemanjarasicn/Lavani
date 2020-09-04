@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import FilePickerManager from 'react-native-file-picker';
+//import FilePickerManager from 'react-native-file-picker';
 import DocumentPicker from 'react-native-document-picker';
 
 export default class Edit_unos_radnika extends Component {
@@ -65,7 +65,6 @@ export default class Edit_unos_radnika extends Component {
           this.props.params.set.jmbg(data[3]);
           this.props.params.set.lk(data[4]);
           this.props.params.set.dokumentList(res[2]);
-          console.log(res[2]);
           if (data[5] != '') {
             this.props.params.set.dr_d(`${new Date(data[5]).getDate()}`);
             this.props.params.set.dr_m(`${new Date(data[5]).getMonth() + 1}`);
@@ -772,15 +771,16 @@ export default class Edit_unos_radnika extends Component {
                   tD_s: params.get.stazDan_t,
                   tM_s: params.get.stazMesec_t,
                   tY_s: params.get.stazGodina_t,
-                  datum_rodjenja: `${params.get.dr_d}-${params.get.dr_m}-${
-                    params.get.dr_y
+                  datum_rodjenja: `${params.get.dr_y}-${params.get.dr_m}-${
+                    params.get.dr_d
                   }`,
-                  pocetak: `${params.get.dp_d}-${params.get.dp_m}-${
-                    params.get.dp_y
+                  pocetak: `${params.get.dp_y}-${params.get.dp_m}-${
+                    params.get.dp_d
                   }`,
                   kraj: kraj,
                 },
                 func: res => {
+                  console.log(res);
                   if (params.get.dokument.length > 0) {
                     Alert.alert(txt.obavestenje, txt.molim_sacekajte);
                     params.get.dokument.forEach(el => {
