@@ -80,8 +80,9 @@ export default class Radnici_na_objektu_home extends Component {
               <TouchableOpacity
                 onPress={() => {
                   this.navigation.navigate('Radnici_na_objektu_zaposleni', {
-                    idRM: item[0],
-                    nazivRM: item[1],
+                    idRMObj: item[0],
+                    idRM: item[2],
+                    nazivRM: item[3],
                     entitet: this.entitet,
                     idObjekta: this.idObjekta,
                     objekat_naziv: this.objekat_naziv,
@@ -94,7 +95,7 @@ export default class Radnici_na_objektu_home extends Component {
                     style.padd_15,
                   )}>
                   <Text style={this.H.ObjAss({fontSize: 18}, style.txt_c)}>
-                    {item[1]}
+                    {item[3]}
                   </Text>
                 </View>
               </TouchableOpacity>

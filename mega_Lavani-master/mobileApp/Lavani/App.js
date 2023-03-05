@@ -7,7 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 //my components
 import Login from './development/components/login';
 import Odabir from './development/components/odabir';
-import Home from './development/components/home';
+import Home from './development/components/home'; 
 import Unos_radnika_home from './development/components/unos_radnika_home';
 import Korekcija_rv_home from './development/components/korekcija_rv_home';
 import Edit_unos_radnika from './development/components/edit_unos_radnika';

@@ -29,6 +29,7 @@ export default class Edit_unos_radnika extends Component {
     this.firma = [];
     this.strucnaSprema = [];
     this.vrstaZaposlenja = [];
+    this.flagJmbg = 0;
   }
 
   izracunajUkupniStaz = (d_u = 0, m_u = 0, y_u = 0) => {
@@ -57,8 +58,9 @@ export default class Edit_unos_radnika extends Component {
     if (this.idRadnik != '') {
       this.H.callFetch({
         url: this.Con.endpoint + 'radnik.cfc?method=get',
-        data: {id: this.idRadnik},
+        data: {id: this.idRadnik, entitet: this.entitet},
         func: res => {
+          console.log(res[0]);
           const data = res[0].DATA[0];
           this.props.params.set.ime(data[1]);
           this.props.params.set.prezime(data[2]);
@@ -716,8 +718,22 @@ export default class Edit_unos_radnika extends Component {
           </ScrollView>
         </View>
         <TouchableOpacity
+
           onPress={() => {
-            if (
+            // eslint-disable-next-line no-undef
+            alert(0);
+       this.H.callFetch({
+              url: this.Con.endpoint + 'radnik.cfc?method=getAllJmbg',
+              data: {entitet: this.entitet, jmbg: params.get.jmbg},
+              func: res => {
+                if (res) {
+                  this.flagJmbg = 1;
+                } else {
+                  this.flagJmbg = 0;
+                }
+              },
+            });
+ if (
               params.get.ime == '' ||
               params.get.prezime == '' ||
               params.get.dr_d == '' ||
@@ -739,7 +755,9 @@ export default class Edit_unos_radnika extends Component {
               Alert.alert(txt.upozorenje, txt.popunite_sva_polja);
             else if (params.get.jmbg.length != 13)
               Alert.alert(txt.upozorenje, txt.jmbg_mora_13);
-            else {
+            else if (this.flagJmbg !== 0 ) {
+              Alert.alert(txt.upozorenje, txt.postojiJmbg);
+            } else {
               this.izracunajStaz(
                 params.get.stazDan,
                 params.get.stazMesec,

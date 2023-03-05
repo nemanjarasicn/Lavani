@@ -6,8 +6,10 @@ import {
   Alert,
   TextInput,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import Autocomplete from 'react-native-autocomplete-input';
 
 export default class Radnici_na_objektu_unos_edit extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ export default class Radnici_na_objektu_unos_edit extends Component {
     this.H = props.params.Helper;
     this.Con = props.params.Config;
     this.idRM = props.params.route.params.idRM;
+    this.idRMObj = props.params.route.params.idRMObj;
     this.nazivRM = props.params.route.params.nazivRM;
     this.idObjekta = props.params.route.params.idObjekta;
     this.objekat_naziv = props.params.route.params.objekat_naziv;
@@ -34,7 +37,24 @@ export default class Radnici_na_objektu_unos_edit extends Component {
         ? props.params.route.params.idU
         : '';
     this.zamena = [];
-    this.state = {};
+    this.state = {
+      zaps: [],
+      query: '',
+    };
+  }
+
+  find(query) {
+    //method called everytime when we change the value of the input
+    if (query === '') {
+      //if the query is null then return blank
+      return [];
+    }
+
+    const {zaps} = this.state;
+    //making a case insensitive regular expression to get similar value from the film json
+    const regex = new RegExp(`${query.trim()}`, 'i');
+    //return the filtered film array according the query from the input
+    return zaps.filter(zap => zap.label.search(regex) >= 0);
   }
 
   getZamene = (sif, sifarnik) => {
@@ -47,7 +67,6 @@ export default class Radnici_na_objektu_unos_edit extends Component {
         entitet: this.entitet,
       },
       func: res => {
-        console.log(res);
         let result = [];
         res.DATA.forEach(el => {
           result.push({
@@ -80,7 +99,10 @@ export default class Radnici_na_objektu_unos_edit extends Component {
             });
           });
           this.zaposleni = result;
-          this.setState({load: 1});
+          this.setState({
+            load: 1,
+            zaps: result,
+          });
         } else if (this.idU != '') {
           const data = res.DATA[0];
           this.props.params.set.dod_d(new Date(data[0]).getDate());
@@ -110,6 +132,10 @@ export default class Radnici_na_objektu_unos_edit extends Component {
   }
 
   render() {
+    const {query} = this.state;
+    const zaps = this.find(query);
+    const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim();
+    //----------
     const params = this.props.params;
     const style = this.style;
     const txt = this.txt;
@@ -118,12 +144,8 @@ export default class Radnici_na_objektu_unos_edit extends Component {
       this.idZ == '' ? (
         <View style={this.H.ObjAss({}, this.style.mar_15, this.style.column)}>
           <Text>{this.txt.radnici}:</Text>
-          <View
-            style={this.H.ObjAss(
-              {height: 50, borderWidth: 1},
-              this.style.txt_c,
-            )}>
-            <RNPickerSelect
+          <View style={styles.container}>
+            {/*<RNPickerSelect
               onValueChange={(value, index) => {
                 this.props.params.set.zaposleni({
                   value: value,
@@ -134,7 +156,42 @@ export default class Radnici_na_objektu_unos_edit extends Component {
               value={this.props.params.get.zaposleni.value}
               useNativeAndroidPickerStyle={false}
               placeholder={{label: this.txt.radnici}}
+            />*/}
+            <Autocomplete
+              autoCapitalize="none"
+              autoCorrect={false}
+              containerStyle={styles.autocompleteContainer}
+              //data to show in suggestion
+              data={zaps.length === 1 && comp(query, zaps[0].label) ? [] : zaps}
+              //default value if you want to set something in input
+              defaultValue={query}
+              /*onchange of the text changing the state of the query which will trigger
+          the findFilm method to show the suggestions*/
+              onChangeText={text => this.setState({query: text})}
+              placeholder="Unesite zaposlenog"
+              renderItem={({item, index}) => (
+                //you can change the view you want to show in suggestion from here
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({query: item.label});
+                    this.props.params.set.zaposleni({
+                      value: item.value,
+                      label: item.label,
+                    });
+                  }}>
+                  <Text style={styles.itemText}>
+                    {item.label} ({item.value})
+                  </Text>
+                </TouchableOpacity>
+              )}
             />
+            <View style={styles.descriptionContainer}>
+              {zaps.length > 0 ? (
+                <Text style={styles.infoText}>{this.state.query}</Text>
+              ) : (
+                <Text style={styles.infoText}>Unesite zaposlenog</Text>
+              )}
+            </View>
           </View>
         </View>
       ) : (
@@ -389,8 +446,8 @@ export default class Radnici_na_objektu_unos_edit extends Component {
                   params.get.ddo_m == '' ||
                   params.get.ddo_y == ''
                     ? ''
-                    : `${params.get.ddo_y}-${params.get.ddo_m}-${
-                        params.get.ddo_d
+                    : `${params.get.ddo_d}/${params.get.ddo_m}/${
+                        params.get.ddo_y
                       }`;
                 this.H.callFetch({
                   url:
@@ -400,10 +457,11 @@ export default class Radnici_na_objektu_unos_edit extends Component {
                     idU: this.idU,
                     idZ: idRadnik,
                     idRM: this.idRM,
+                    idRMObj: this.idRMObj,
                     idObjekta: this.idObjekta,
                     entitet: this.entitet,
-                    datum_od: `${params.get.dod_y}-${params.get.dod_m}-${
-                      params.get.dod_d
+                    datum_od: `${params.get.dod_d}/${params.get.dod_m}/${
+                      params.get.dod_y
                     }`,
                     datum_do: datum_do,
                     brUgovora: params.get.brUgovora,
@@ -437,6 +495,20 @@ export default class Radnici_na_objektu_unos_edit extends Component {
                           },
                         });
                       } else {
+                        this.H.callFetch({
+                          url:
+                            this.Con.endpoint +
+                            'radnici_na_objektima.cfc?method=zaposleni',
+                          data: {
+                            idObjekta: this.idObjekta,
+                            idRM: this.idRM,
+                            entitet: this.entitet,
+                          },
+                          func: res => {
+                            params.route.params.refresh2(res[0].DATA);
+                          },
+                        });
+
                         this.H.callFetch({
                           url:
                             this.Con.endpoint +
@@ -484,3 +556,30 @@ export default class Radnici_na_objektu_unos_edit extends Component {
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#FFF',
+    flex: 1,
+    padding: 16,
+    marginTop: 3,
+  },
+  autocompleteContainer: {
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#000',
+  },
+  descriptionContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  itemText: {
+    fontSize: 15,
+    paddingTop: 5,
+    paddingBottom: 5,
+    margin: 2,
+  },
+  infoText: {
+    textAlign: 'center',
+    fontSize: 16,
+  },
+});

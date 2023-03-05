@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2da50201-995e-4f60-8864-dc07a8f5d45f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/baner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/baner.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/android/app/src/main/assets/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/android/app/src/main/assets/index.android.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/edit_unos_radnika.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/edit_unos_radnika.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/novi_odmor.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/novi_odmor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/novo_odsustvo.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/novo_odsustvo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radna_mesta.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radna_mesta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_home.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_ugovori.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_ugovori.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_unos_edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_unos_edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_zaposleni.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radnici_na_objektu_zaposleni.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radno_mesto_unos_edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/radno_mesto_unos_edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/unos_radnika_home.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/components/unos_radnika_home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/config/Config.js" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/config/Config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/txt.json" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/development/txt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/mobileApp/Lavani/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mega_Lavani-master/za google play.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mega_Lavani-master/za google play.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qaLOz0SqCKBxjB4R7YpcXxzg2R" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2da50201-995e-4f60-8864-dc07a8f5d45f" name="Default Changelist" comment="" />
+      <created>1617312729902</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617312729902</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617655951596">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1617655951596" />
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1617655913840">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617655913840" />
+  </component>
+</project>

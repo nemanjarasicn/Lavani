@@ -12,6 +12,7 @@ export default class Radnici_na_objektu_ugovori extends Component {
     this.idObjekta = props.params.route.params.idObjekta;
     this.objekat_naziv = props.params.route.params.objekat_naziv;
     this.idRM = props.params.route.params.idRM;
+    this.idRMObj = props.params.route.params.idRMObj;
     this.nazivRM = props.params.route.params.nazivRM;
     this.idZ = props.params.route.params.idZ;
     this.nazivZ = props.params.route.params.nazivZ;
@@ -93,6 +94,7 @@ export default class Radnici_na_objektu_ugovori extends Component {
         <TouchableOpacity
           onPress={() => {
             params.navigation.navigate('Radnici_na_objektu_unos_edit', {
+              idRMObj: this.idRMObj,
               idZ: this.idZ,
               nazivZ: this.nazivZ,
               idRM: this.idRM,
@@ -163,6 +165,7 @@ export default class Radnici_na_objektu_ugovori extends Component {
                     entitet: this.entitet,
                     idObjekta: this.idObjekta,
                     objekat_naziv: this.objekat_naziv,
+                    idRMObj: this.idRMObj,
                     refresh: data => {
                       if (!data) {
                         this.H.callFetch({
@@ -190,6 +193,7 @@ export default class Radnici_na_objektu_ugovori extends Component {
                         });
                       } else this.setState({data: data});
                     },
+                    refresh2: params.route.params.refresh,
                   });
                 }}>
                 <View

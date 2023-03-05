@@ -130,7 +130,8 @@
     "popunite_sva_polja_sa_zvezdicom": "Попуните сва поља са звездицом",
     "firma": "Фирма",
     "zamena": "Замена",
-    "nema": "Нема"
+    "nema": "Нема",
+    "postojiJmbg": "Постоји радник са овим ЈМБГ"
   },
   "1": {
     "login": "Uloguj se",
@@ -263,6 +264,7 @@
     "popunite_sva_polja_sa_zvezdicom": "Popunite sva polja sa zvezdicom",
     "firma": "Firma",
     "zamena": "Zamena",
-    "nema": "Nema"
+    "nema": "Nema",
+    "postojiJmbg": "Postoji radnik sa ovim JMBG"
   }
 }

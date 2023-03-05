@@ -12,6 +12,7 @@ export default class Radnici_na_objektu_zaposleni extends Component {
     this.idObjekta = props.params.route.params.idObjekta;
     this.objekat_naziv = props.params.route.params.objekat_naziv;
     this.idRM = props.params.route.params.idRM;
+    this.idRMObj = props.params.route.params.idRMObj;
     this.nazivRM = props.params.route.params.nazivRM;
     this.entitet = props.params.route.params.entitet;
     this.navigation = props.params.navigation;
@@ -80,6 +81,7 @@ export default class Radnici_na_objektu_zaposleni extends Component {
           onPress={() => {
             if (this.preostaloMesta != null && this.preostaloMesta > 0) {
               params.navigation.navigate('Radnici_na_objektu_unos_edit', {
+                idRMObj: this.idRMObj,
                 idRM: this.idRM,
                 nazivRM: this.nazivRM,
                 entitet: this.entitet,
@@ -121,6 +123,7 @@ export default class Radnici_na_objektu_zaposleni extends Component {
               <TouchableOpacity
                 onPress={() => {
                   this.navigation.navigate('Radnici_na_objektu_ugovori', {
+                    idRMObj: this.idRMObj,
                     idZ: item[0],
                     nazivZ: item[1],
                     idRM: this.idRM,
@@ -135,10 +138,10 @@ export default class Radnici_na_objektu_zaposleni extends Component {
                 }}>
                 <View
                   style={
-                    item[2]
+                    item[5] === 0
                       ? this.H.ObjAss(
                           {
-                            height: 55, //77
+                            height: 77,
                             borderBottomWidth: 1,
                             backgroundColor: '#ef9a9a',
                           },
@@ -146,7 +149,11 @@ export default class Radnici_na_objektu_zaposleni extends Component {
                           style.padd_15,
                         )
                       : this.H.ObjAss(
-                          {height: 55, borderBottomWidth: 1},
+                          {
+                            height: 77,
+                            borderBottomWidth: 1,
+                            backgroundColor: '#1de9b6',
+                          },
                           style.flex_0,
                           style.padd_15,
                         )
@@ -154,10 +161,10 @@ export default class Radnici_na_objektu_zaposleni extends Component {
                   <Text style={this.H.ObjAss({fontSize: 18}, style.txt_c)}>
                     {item[1]}
                   </Text>
-                  {0 ? (
+                  {item[2] ? (
                     <View style={{backgroundColor: '#4fc3f7', marginTop: 10}}>
                       <Text style={{textAlign: 'center', color: '#000'}}>
-                        {txt.zamena}: {item[3] != '' ? item[3] : txt.nema}
+                        {txt.zamena}: {item[4] != '' ? item[4] : txt.nema}
                       </Text>
                     </View>
                   ) : null}
